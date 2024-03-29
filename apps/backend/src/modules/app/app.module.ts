@@ -3,7 +3,6 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Neo4jModule } from 'nest-neo4j';
-import { Neo4jModule as _Neo4jModule } from '../neo4j/neo4j.module';
 
 @Module({
   imports: [
@@ -14,7 +13,6 @@ import { Neo4jModule as _Neo4jModule } from '../neo4j/neo4j.module';
       username: process.env.NEO4J_USERNAME!,
       password: process.env.NEO4J_PASSWORD!,
     }),
-    _Neo4jModule,
   ],
   controllers: [AppController],
   providers: [AppService],
