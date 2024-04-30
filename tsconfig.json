@@ -1,0 +1,17 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@docs-hub/ui/components": ["libs/ui/components/src/lib"],
+      "@docs-hub/ui/utils": ["libs/ui/utils/src/lib/ui-utils"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
+}

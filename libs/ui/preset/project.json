@@ -1,0 +1,8 @@
+{
+  "name": "ui-preset",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ui/preset/src",
+  "projectType": "library",
+  "targets": {},
+  "tags": []
+}

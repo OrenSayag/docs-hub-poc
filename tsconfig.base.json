@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@./shared-types": ["libs/shared-types/src/index.ts"]
+      "@docs-hub/shared-types": ["libs/shared-types/src/index.ts"],
+      "@docs-hub/ui/components": ["libs/ui/components/src/index.ts"],
+      "@docs-hub/ui/preset": ["libs/ui/preset/src/global.css"],
+      "@docs-hub/ui/utils": ["libs/ui/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
