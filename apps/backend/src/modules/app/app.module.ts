@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Neo4jModule } from 'nest-neo4j';
 import { ProjectsModule } from '../projects/projects.module';
+import { DocumentsModule } from '../documents/documents.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { ProjectsModule } from '../projects/projects.module';
       password: process.env.NEO4J_PASSWORD!,
     }),
     ProjectsModule,
+    DocumentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
