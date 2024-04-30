@@ -3,6 +3,7 @@ import { Neo4jService } from 'nest-neo4j/dist';
 import _getDocumentById from './methods/get-document-by-id';
 import _updateDocument from './methods/update-document';
 import _createDocument from './methods/create-document';
+import _deleteDocument from './methods/delete-document';
 
 @Injectable()
 export class DocumentsService {
@@ -28,6 +29,14 @@ export class DocumentsService {
     input: Omit<Parameters<typeof _createDocument>[0], 'neo4jService'>,
   ) {
     return await _createDocument({
+      neo4jService: this.neo4jService,
+      ...input,
+    });
+  }
+  public async deleteDocument(
+    input: Omit<Parameters<typeof _deleteDocument>[0], 'neo4jService'>,
+  ) {
+    return await _deleteDocument({
       neo4jService: this.neo4jService,
       ...input,
     });

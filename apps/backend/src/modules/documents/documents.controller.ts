@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
 import { DocumentsService } from './documents.service';
 import {
   ApiBaseResponse,
@@ -57,6 +65,20 @@ export class DocumentsController {
     return {
       success: true,
       message: 'Successfully created document',
+      data: undefined,
+    };
+  }
+
+  @Delete(':id')
+  public async deleteDocument(
+    @Param('id') id: string,
+  ): Promise<ApiBaseResponse<void>> {
+    await this.documentService.deleteDocument({
+      id,
+    });
+    return {
+      success: true,
+      message: 'Successfully deleted document',
       data: undefined,
     };
   }
