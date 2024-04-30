@@ -7,6 +7,7 @@ import { ProjectsModule } from '../projects/projects.module';
 import { DocumentsModule } from '../documents/documents.module';
 import { APP_PIPE } from '@nestjs/core';
 import { ZodValidationPipe } from 'nestjs-zod';
+import { DirectoriesModule } from '../directories/directories.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ZodValidationPipe } from 'nestjs-zod';
     }),
     ProjectsModule,
     DocumentsModule,
+    DirectoriesModule,
   ],
   controllers: [AppController],
   providers: [
