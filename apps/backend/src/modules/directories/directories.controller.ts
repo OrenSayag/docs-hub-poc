@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Param, Post } from '@nestjs/common';
 import { DirectoriesService } from './directories.service';
 import { createZodDto } from 'nestjs-zod';
 import { ApiBaseResponse, createDirectorySchema } from '@./shared-types';
@@ -17,6 +17,18 @@ export class DirectoriesController {
     return {
       success: true,
       message: 'Successfully created directory',
+      data: undefined,
+    };
+  }
+
+  @Delete(':id')
+  public async deleteDirectory(
+    @Param('id') id: string,
+  ): Promise<ApiBaseResponse<void>> {
+    await this.directoriesService.deleteDirectory({ id });
+    return {
+      success: true,
+      message: 'Successfully deleted directory',
       data: undefined,
     };
   }

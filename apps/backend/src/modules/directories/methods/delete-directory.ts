@@ -8,11 +8,11 @@ type Input = {
 
 type Output = Promise<void>;
 
-const deleteDocument = async ({ id, neo4jService }: Input): Output => {
+const deleteDirectory = async ({ id, neo4jService }: Input): Output => {
   const cypher = `
-  MATCH (doc:${Labels.DOCUMENT}) WHERE elementid(doc) = $id
-  WITH doc
-  DETACH DELETE doc
+  MATCH (dir:${Labels.DIRECTORY}) WHERE elementid(dir) = $id
+  WITH dir
+  DETACH DELETE dir
   `;
   const params = {
     id,
@@ -20,4 +20,4 @@ const deleteDocument = async ({ id, neo4jService }: Input): Output => {
   await neo4jService.write(cypher, params);
 };
 
-export default deleteDocument;
+export default deleteDirectory;
