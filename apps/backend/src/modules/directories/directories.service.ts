@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 import _createDirectory from './methods/create-directory';
 import _deleteDirectory from './methods/delete-directory';
+import _updateDirectory from './methods/update-directory';
 import { Neo4jService } from 'nest-neo4j/dist';
 
 @Injectable()
@@ -20,6 +21,15 @@ export class DirectoriesService {
     input: Omit<Parameters<typeof _deleteDirectory>[0], 'neo4jService'>,
   ) {
     return await _deleteDirectory({
+      neo4jService: this.neo4jService,
+      ...input,
+    });
+  }
+
+  public async updateDirectory(
+    input: Omit<Parameters<typeof _updateDirectory>[0], 'neo4jService'>,
+  ) {
+    return await _updateDirectory({
       neo4jService: this.neo4jService,
       ...input,
     });

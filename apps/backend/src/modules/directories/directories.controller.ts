@@ -1,9 +1,14 @@
-import { Body, Controller, Delete, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Param, Patch, Post } from '@nestjs/common';
 import { DirectoriesService } from './directories.service';
 import { createZodDto } from 'nestjs-zod';
-import { ApiBaseResponse, createDirectorySchema } from '@./shared-types';
+import {
+  ApiBaseResponse,
+  createDirectorySchema,
+  updateDirectorySchema,
+} from '@./shared-types';
 
 class CreateDirectoryDto extends createZodDto(createDirectorySchema) {}
+class UpdateDirectoryDto extends createZodDto(updateDirectorySchema) {}
 
 @Controller('directories')
 export class DirectoriesController {
@@ -29,6 +34,22 @@ export class DirectoriesController {
     return {
       success: true,
       message: 'Successfully deleted directory',
+      data: undefined,
+    };
+  }
+
+  @Patch(':id')
+  public async updateDirectory(
+    @Body() { name }: UpdateDirectoryDto,
+    @Param('id') id: string,
+  ): Promise<ApiBaseResponse<void>> {
+    await this.directoriesService.updateDirectory({
+      name,
+      id,
+    });
+    return {
+      success: true,
+      message: 'Successfully updated directory',
       data: undefined,
     };
   }
