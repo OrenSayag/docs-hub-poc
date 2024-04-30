@@ -5,6 +5,8 @@ import { AppService } from './app.service';
 import { Neo4jModule } from 'nest-neo4j';
 import { ProjectsModule } from '../projects/projects.module';
 import { DocumentsModule } from '../documents/documents.module';
+import { APP_PIPE } from '@nestjs/core';
+import { ZodValidationPipe } from 'nestjs-zod';
 
 @Module({
   imports: [
@@ -19,6 +21,12 @@ import { DocumentsModule } from '../documents/documents.module';
     DocumentsModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_PIPE,
+      useClass: ZodValidationPipe,
+    },
+  ],
 })
 export class AppModule {}

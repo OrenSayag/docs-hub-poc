@@ -1,13 +1,15 @@
-import { Body, Controller, Get, Param, Patch } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { DocumentsService } from './documents.service';
 import {
   ApiBaseResponse,
+  createDocumentSchema,
   Document,
   updateDocumentSchema,
 } from '@./shared-types';
 import { createZodDto } from 'nestjs-zod';
 
 class UpdateDocumentDTO extends createZodDto(updateDocumentSchema) {}
+class CreateDocumentDTO extends createZodDto(createDocumentSchema) {}
 
 @Controller('documents')
 export class DocumentsController {
@@ -38,6 +40,23 @@ export class DocumentsController {
     return {
       success: true,
       message: 'Successfully updated document',
+      data: undefined,
+    };
+  }
+
+  @Post('')
+  public async createDocument(
+    @Param('id') id: string,
+    @Body() { name, content, parentId }: CreateDocumentDTO,
+  ): Promise<ApiBaseResponse<void>> {
+    await this.documentService.createDocument({
+      name,
+      content,
+      parentId,
+    });
+    return {
+      success: true,
+      message: 'Successfully created document',
       data: undefined,
     };
   }
