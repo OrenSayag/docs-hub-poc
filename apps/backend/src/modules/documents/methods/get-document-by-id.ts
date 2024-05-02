@@ -1,5 +1,5 @@
 import { Neo4jService } from 'nest-neo4j/dist';
-import { Document } from '@./shared-types';
+import { Document } from '@docs-hub/shared-types';
 import { Labels } from '../../../constants/neo4j';
 import { NotFoundException } from '@nestjs/common';
 

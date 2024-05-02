@@ -5,7 +5,7 @@ import {
   ApiBaseResponse,
   createDirectorySchema,
   updateDirectorySchema,
-} from '@./shared-types';
+} from '@docs-hub/shared-types';
 
 class CreateDirectoryDto extends createZodDto(createDirectorySchema) {}
 class UpdateDirectoryDto extends createZodDto(updateDirectorySchema) {}

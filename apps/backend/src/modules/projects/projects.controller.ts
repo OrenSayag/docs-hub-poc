@@ -1,5 +1,5 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { ApiBaseResponse, ProjectTree } from '@./shared-types';
+import { ApiBaseResponse, ProjectTree } from '@docs-hub/shared-types';
 import { ProjectsService } from './projects.service';
 
 @Controller('projects')

@@ -1,4 +1,4 @@
-import { ProjectTreeLevelType } from '@./shared-types';
+import { ProjectTreeLevelType } from '@docs-hub/shared-types';
 
 export enum Relationships {
   CONTAINS = 'CONTAINS',

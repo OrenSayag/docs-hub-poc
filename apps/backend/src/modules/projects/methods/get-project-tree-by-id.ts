@@ -1,4 +1,4 @@
-import { ProjectTree, ProjectTreeLevelType } from '@./shared-types';
+import { ProjectTree, ProjectTreeLevelType } from '@docs-hub/shared-types';
 import { Neo4jService } from 'nest-neo4j/dist';
 import { Labels, PropNames, Relationships } from '../../../constants/neo4j';
 import { NotFoundException } from '@nestjs/common';

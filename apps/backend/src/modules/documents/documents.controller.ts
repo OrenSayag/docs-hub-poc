@@ -13,7 +13,7 @@ import {
   createDocumentSchema,
   Document,
   updateDocumentSchema,
-} from '@./shared-types';
+} from '@docs-hub/shared-types';
 import { createZodDto } from 'nestjs-zod';
 
 class UpdateDocumentDTO extends createZodDto(updateDocumentSchema) {}
