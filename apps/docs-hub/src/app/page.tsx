@@ -1,16 +1,8 @@
 'use client';
 
-import { Button } from '@docs-hub/ui/components';
+import { redirect } from 'next/navigation';
 
 export default function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.css file.
-   */
-  return (
-    <div>
-      <Button>Hello World. Is ShadCN here yet?</Button>
-    </div>
-  );
+  redirect(`/project/1`);
+  return null;
 }
