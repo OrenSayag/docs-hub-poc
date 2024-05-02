@@ -3,6 +3,8 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { composePlugins, withNx } = require('@nx/next');
 
+const basePath = process.env['FE_BASE_PATH'] ?? '';
+
 /**
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
  **/
@@ -12,6 +14,7 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  basePath: basePath,
 };
 
 const plugins = [
